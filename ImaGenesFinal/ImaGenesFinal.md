@@ -1,24 +1,26 @@
+# ImáGenes
+El programa consiste en la generación de una imagen aleatoria la cual será iterada de forma indefinifa hasta que se encuentre un individuo óptimo. Se comienza importando las bibliotecas necesarias.
 ```python
 #Elaborado por Ricardo Gonzalez Garduño
 import numpy as np
 import matplotlib.pyplot as plt
 import random
-
+```
+Ahora se define una clase llamada datos, esto para que cada individuo posea sus atributos únicos. Los cuales serán el individuo definido por un arreglo de 0s y 1s los cuales representan su código genético, el fitness es la función que brinda el criterio de discriminación para determinar si pasa a la siguiente iteración o muere.
+```python
 #Clase para poder evaluar los individuos
 class Datos():
     individuo = []
     fitness = 0
-
-#Funciones geneticas necesarias
-def creaIndividuoInicial(x,y):
-    b = np.random.randint(2, size=(y,x))
-    return b
-
-#Funciones de procesamiento de imagenes
+```
+Ahora se definen todas las funciones necesarias para un buen funcionamiento, las cuales se describen a continuación.
+```python
+# Funciones de procesamiento de imagenes
+# Una función que mostrará el código genético del individuo de forma gráfica
 def muestraImagen(matrizImagen):
     plt.imshow(matrizImagen,vmin=0,vmax=1)
 
-#Funcion para recorrer la matriz
+#Funcion para recorrer la matriz, e imprimir sus elementos
 def recorreMatrizC(matriz):
     for elemento in np.nditer(matriz, order = 'C'):
         print(elemento, end=' ')
@@ -30,7 +32,7 @@ def MatrizCadena(matriz):
         m = m+str(elemento)
     return m
 
-#Funcion para convertir una cadena a matriz
+#Funcion para convertir una cadena de 0s y 1s a una matriz
 def CadenaMatriz(cadena,y,x):
     s = (y,x)
     b = np.random.randint(1, size=(y,x))
@@ -142,6 +144,9 @@ def muestraNuevaGeneracion(pobV,h,w,num, fitness):
 def imprimePoblacion(arr):
     for i in range(0,len(arr)):
         print(arr[i],"\n")
+```
+En esta sección se definen los parámetros configurables de la mutación de estos individuos. width y height son los tamaños de la imagen, rows y columns el número de 0s y 1s de cada matriz, el tamaño de la población se establece según la matriz, la probabilidad de cruza en un 0.7, hay una alta probabilidad de que se reproduzcan, la probabilidad de mutación es del 0.1 y el número de 0s y 1s que mutarán será de 5.
+```python
 #Estructora de la imagen y elementos necesarios
 width=5
 height=5
@@ -159,7 +164,9 @@ nBitsMutar = 5
 
 x = width
 y = height
-
+```
+Una vez que todo está listo se ejecutan las funciones con los parámetros definidos.
+``` python
 #Mascara que sera utilizada como objetivo del algoritmo genetico
 a = creaIndividuoInicial(x,y)
 print("Objetivo")

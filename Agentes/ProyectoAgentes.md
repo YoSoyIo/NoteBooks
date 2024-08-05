@@ -1,3 +1,5 @@
+# Agentes usando MESA en python
+
 ```python
 from mesa import Agent, Model
 from mesa.time import SimultaneousActivation
@@ -184,18 +186,3 @@ while(band == False):
     Otro :S
     Buen dia necesito un envio
     
-
-
-```python
-
-```
-
-
-```python
-
-```
-
-
-```python
-
-```
