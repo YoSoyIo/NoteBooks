@@ -1,14 +1,4 @@
 ```python
-
-```
-
-
-```python
-
-```
-
-
-```python
 #Elaborado por Ricardo Gonzalez Garduño
 import numpy as np
 import matplotlib.pyplot as plt
@@ -18,7 +8,7 @@ import random
 class Datos():
     individuo = []
     fitness = 0
-    
+
 #Funciones geneticas necesarias
 def creaIndividuoInicial(x,y):
     b = np.random.randint(2, size=(y,x))
@@ -27,12 +17,12 @@ def creaIndividuoInicial(x,y):
 #Funciones de procesamiento de imagenes
 def muestraImagen(matrizImagen):
     plt.imshow(matrizImagen,vmin=0,vmax=1)
-    
+
 #Funcion para recorrer la matriz
 def recorreMatrizC(matriz):
     for elemento in np.nditer(matriz, order = 'C'):
         print(elemento, end=' ')
-        
+
 #Funcion para convertir una matriz al individuo
 def MatrizCadena(matriz):
     m = ""
@@ -62,10 +52,10 @@ def generacionInicial():
         arr.append(MatrizCadena(b))
         axes.append(fig.add_subplot(rows, cols, a+1) )
         subplot_title=("Im-"+str(a))
-        axes[-1].set_title(subplot_title)  
+        axes[-1].set_title(subplot_title)
         axes[-1].axis("off")
         plt.imshow(b)
-    fig.tight_layout()    
+    fig.tight_layout()
     plt.show()
     return arr
 
@@ -116,8 +106,8 @@ def Cruza(index, arr,pxC):
                 aux.append(cadena)
         k += 1
     return aux
-            
-#Esta funcion nos ayuda a mutar los individuos recien cruzados y nos da la generacion mutada    
+
+#Esta funcion nos ayuda a mutar los individuos recien cruzados y nos da la generacion mutada
 def Mutar(pob, pxM, nBitsM):
     numero = int(len(pob)*pxM)
     for i in range(0,numero):
@@ -142,10 +132,10 @@ def muestraNuevaGeneracion(pobV,h,w,num, fitness):
         b = CadenaMatriz(pobV[a],h,w)
         axes.append(fig.add_subplot(rows, cols, a+1) )
         subplot_title=("Im-"+str(a+1))
-        axes[-1].set_title(subplot_title)  
+        axes[-1].set_title(subplot_title)
         axes[-1].axis("off")
         plt.imshow(b)
-    fig.tight_layout()    
+    fig.tight_layout()
     plt.show()
 
 #Esta funcion imprime los individuos en su forma de cadena
@@ -205,113 +195,46 @@ muestraImagen(a)
 
     Objetivo
     Generacion 0
-    
 
-
-    
 ![png](output_2_1.png)
-    
 
-
-
-    
 ![png](output_2_2.png)
-    
-
 
     Generacion  1000
-    
 
-
-    
 ![png](output_2_4.png)
-    
-
 
     Generacion  2000
-    
 
-
-    
 ![png](output_2_6.png)
-    
-
 
     Generacion  3000
-    
 
-
-    
 ![png](output_2_8.png)
-    
-
 
     Generacion  4000
-    
 
-
-    
 ![png](output_2_10.png)
-    
-
 
     Generacion  5000
-    
 
-
-    
 ![png](output_2_12.png)
-    
-
 
     Generacion  6000
-    
 
-
-    
 ![png](output_2_14.png)
-    
-
 
     Generacion  7000
-    
 
-
-    
 ![png](output_2_16.png)
-    
-
 
     Generacion  8000
-    
 
-
-    
 ![png](output_2_18.png)
-    
-
 
     Generacion  8748
-    
 
-
-    
 ![png](output_2_20.png)
-    
 
-
-
-    
 ![png](output_2_21.png)
-    
 
-
-
-```python
-
-```
-
-
-```python
-
-```
